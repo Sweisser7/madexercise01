@@ -13,8 +13,21 @@
 > Note: you can also use code snippets to illustrate your answer. 
 
 ```kotlin 
-// example code snippet
+// Kotlin has built-in null safety features to prevent null pointer exceptions
+// You can declare Data types as Nullable and non-Nullable
 val a: String = "value" // non-null type
+val b: String? = null //nullable type
+// In some scenarios variables need to be nullable so you can add this question mark to declare it nullable
+
+// Null Checks:
+val c = nullable?.c //safe call operator ?., returns length if not null, otherwise null
+
+//Elvis operator:
+val d = nullable?.d ?: -1 //returns -1 instead of null if length is null
+
+//Not-null Assertion Operator:
+val e = nullable!!.e //throws NullPointerException if nullable is null
+
 ```
 
 ### What are lambda expressions and higher order functions in Kotlin? Why would you store a function inside a variable? (0,5 points)

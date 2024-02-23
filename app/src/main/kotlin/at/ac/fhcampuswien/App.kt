@@ -7,6 +7,7 @@ class App {
     // Game logic for a number guessing game
     fun playNumberGame(digitsToGuess: Int = 4) {
         //TODO: build a menu which calls the functions and works with the return values
+        val generatedNumber = generateRandomNonRepeatingNumber(digitsToGuess)
     }
 
     /**
