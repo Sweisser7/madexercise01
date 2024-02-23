@@ -3,6 +3,9 @@
  */
 package at.ac.fhcampuswien
 
+import java.lang.IllegalArgumentException
+import kotlin.random.Random
+
 class App {
     // Game logic for a number guessing game
     fun playNumberGame(digitsToGuess: Int = 4) {
@@ -26,7 +29,22 @@ class App {
      */
     val generateRandomNonRepeatingNumber: (Int) -> Int = { length ->
         //TODO implement the function
-        0   // return value is a placeholder
+        if (length < 1 || length > 9) {
+            throw IllegalArgumentException("Wrong size of number")
+        }
+
+        val digits = mutableListOf<Int>()
+        var randomNumber = 0
+
+        for (i in 1 .. length) {
+            var digit: Int
+            do {
+                digit = (1..9).random()
+            } while (digit in digits)
+            digits.add(digit)
+            randomNumber = randomNumber * 10 + digit
+        }
+        randomNumber
     }
 
     /**

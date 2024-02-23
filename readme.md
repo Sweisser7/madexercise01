@@ -33,6 +33,17 @@ val e = nullable!!.e //throws NullPointerException if nullable is null
 ### What are lambda expressions and higher order functions in Kotlin? Why would you store a function inside a variable? (0,5 points)
 
 <span style="color:blue">Provide your answer here!</span>
+Lambda Expressions are a concise way to code a anonymous function or function literals.
+They are essentially unnamed functions that can be treated as values.
+Higher-order functions are functions that take other functions as parameters or return a function.
+
+Storing a function inside a variable allows greater flexibility in programming.
+Examples:
+    +Passing functions as arguments
+    +Return functions from functions
+    +Storing Callbacks
+etc.
+
 
 ### Provide a solution for the following number guessing game inside `App.kt`. (3 points)
 
