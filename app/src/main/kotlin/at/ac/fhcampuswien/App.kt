@@ -95,7 +95,7 @@ class App {
                 digitOccurrences[char] = digitOccurrences[char]!! -1
             }
         }
-        val minLength = minOf(inputString.length, genNumber.length)
+        val minLength = genNumber.length
         var m = 0
 
         for (i in 0 until minLength) {
