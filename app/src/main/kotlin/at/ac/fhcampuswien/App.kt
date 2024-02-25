@@ -4,13 +4,24 @@
 package at.ac.fhcampuswien
 
 import java.lang.IllegalArgumentException
-import kotlin.random.Random
+import java.util.Scanner
 
 class App {
     // Game logic for a number guessing game
     fun playNumberGame(digitsToGuess: Int = 4) {
         //TODO: build a menu which calls the functions and works with the return values
         val generatedNumber = generateRandomNonRepeatingNumber(digitsToGuess)
+        println("Guess your number with $digitsToGuess digits:")
+        while (true) {
+            val scan = Scanner(System.`in`)
+            val input = scan.nextLine().trim().toInt()
+            val solution = checkUserInputAgainstGeneratedNumber(input, generatedNumber)
+            println(solution)
+            if (solution.n == 4 && solution.m == 4) {
+                println("You guessed the correct number, congrats!")
+                break
+            }
+        }
     }
 
     /**
@@ -65,11 +76,39 @@ class App {
      */
     val checkUserInputAgainstGeneratedNumber: (Int, Int) -> CompareResult = { input, generatedNumber ->
         //TODO implement the function
-        CompareResult(0, 0)   // return value is a placeholder
+        val inputString = input.toString()
+        val genNumber = generatedNumber.toString()
+
+        if (inputString.length != genNumber.length) {
+            throw IllegalArgumentException("Generated Number and Input have to be same size")
+        }
+        var n = 0
+
+        val digitOccurrences = mutableMapOf<Char, Int>()
+        for (char in inputString) {
+            digitOccurrences[char] = digitOccurrences.getOrDefault(char, 0) +1
+        }
+
+        for (char in genNumber) {
+            if (digitOccurrences.containsKey(char) && digitOccurrences[char]!! > 0) {
+                n++
+                digitOccurrences[char] = digitOccurrences[char]!! -1
+            }
+        }
+        val minLength = minOf(inputString.length, genNumber.length)
+        var m = 0
+
+        for (i in 0 until minLength) {
+            if (inputString[i] == genNumber[i]) {
+                m++
+            }
+        }
+        CompareResult(n, m)
     }
 }
 
 fun main() {
-    println("Hello World!")
     // TODO: call the App.playNumberGame function with and without default arguments
+    val game = App()
+    game.playNumberGame()
 }

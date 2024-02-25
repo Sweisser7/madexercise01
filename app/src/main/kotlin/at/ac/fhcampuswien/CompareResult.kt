@@ -4,7 +4,7 @@ package at.ac.fhcampuswien
  *
  * Look at the toSting() and use it in your output
  *
- * @param n The number of digits guessed correctly (regardless of their position)
+ * @param n The numbier of digts guessed correctly (regardless of their position)
  * @param m The number of digits guessed correctly and in the correct position.
  * @constructor creates an instance of the class.
  */
