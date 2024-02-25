@@ -17,7 +17,7 @@ class App {
             val input = scan.nextLine().trim().toInt()
             val solution = checkUserInputAgainstGeneratedNumber(input, generatedNumber)
             println(solution)
-            if (solution.n == 4 && solution.m == 4) {
+            if (solution.n == digitsToGuess && solution.m == digitsToGuess) {
                 println("You guessed the correct number, congrats!")
                 break
             }
@@ -111,4 +111,6 @@ fun main() {
     // TODO: call the App.playNumberGame function with and without default arguments
     val game = App()
     game.playNumberGame()
+    game.playNumberGame(6)
+
 }
